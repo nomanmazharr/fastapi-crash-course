@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = 'http://127.0.0.1:8000/predict'
+API_URL = 'http://54.197.178.51:8000/predict'
 
 
 st.title('Diabetes Predictor')
@@ -32,7 +32,7 @@ if st.button('Predict'):
         response = requests.post(API_URL, json=user_input)
         result = response.json()
         st.write(result)
-        result = result['predicted_category']
+        result = result['prediction_category']
         if result ==0:
             st.write('Patient does not have diabetes')
         else:
